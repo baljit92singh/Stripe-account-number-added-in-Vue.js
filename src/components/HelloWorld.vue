@@ -25,15 +25,15 @@
       </div>
       <div class="form-row">
         <label for="routing-number">Routing Number</label>
-        <input type="text" id="routing-number" value="110000000" />
+        <input type="text" id="routing-number" value="110000000XXXX" />
       </div>
       <div class="form-row">
         <label for="account-number">Account Number</label>
-        <input type="text" id="account-number" value="000123456789" />
+        <input type="text" id="account-number" value="000123456789XXXXX" />
       </div>
       <div class="form-row">
         <label for="account-holder-name">Account Holder Name</label>
-        <input type="text" id="account-holder-name" value="Jane Austen" />
+        <input type="text" id="account-holder-name" value="Jane Austen XXXXXX" />
       </div>
       <div class="form-row">
         <label for="account-holder-type">Account Holder Type</label>
@@ -60,7 +60,6 @@ export default {
   data() {
     return {
       stripe: window.Stripe("ENTER YOUR PUBLIC STRIP KEY"),
-      elements: "",
     };
   },
   props: {
@@ -76,11 +75,6 @@ export default {
         // In this example, we're simply displaying the token
         successElement.querySelector(".token").textContent = result.token.id;
         successElement.classList.add("visible");
-
-        // In a real integration, you'd submit the form with the token to your backend server
-        //var form = document.querySelector('form');
-        //form.querySelector('input[name="token"]').setAttribute('value', result.token.id);
-        //form.submit();
       } else {
         errorElement.textContent = result.error.message;
         errorElement.classList.add("visible");
